@@ -29,6 +29,7 @@ make
 ```
 
 > Problemas com Recompilação
+
 Se caso já existir um arquivo `.bin` no diretório e ele **não está sendo recompilado corretamente**, utilize uma das opções abaixo para forçar a recompilação:
 
 ```bash
