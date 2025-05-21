@@ -30,7 +30,7 @@ make
 
 > Problemas com Recompilação
 
-Se caso já existir um arquivo `.bin` no diretório e ele **não está sendo recompilado corretamente**, utilize uma das opções abaixo para forçar a recompilação:
+ Se caso já existir um arquivo `.bin` no diretório e ele **não está sendo recompilado corretamente**, utilize uma das opções abaixo para forçar a recompilação:
 
 ```bash
 make -B
@@ -44,29 +44,23 @@ make
 3. Um executável .bin será gerado, por exemplo: dijkstra.bin.
 
 
-## Execução de Testes com Bat1
+## Execução de Testes do FloydWarshall
 
-A pasta `Bat1` contém arquivos de entrada e um script para testar todos os algoritmos. Basta copiar os executáveis `.bin` (gerados após a compilação) para dentro da pasta `Bat1`.
+A pasta `BatFloydWarshall` contém os inputs, gabarito dos inputs e a source. Basta copiar o executável `.bin` (gerado após a compilação) para dentro da pasta `BatFloydWarshall`.
 
-
-na `Bat1` vamos ter as entradas:
+Após compilar o `.bin` e caloca-lo na pasta `BatFloydWarshall` rode no terminal (WSL):
 ```bash
-- `inputs` : testes Floyd-Warshall
-- `instances`: testes Kosaraju
-- `instances_scc`: testes Dijkstra, Kruskal e Prim
-```
-e os gabaritos das entradas:
-```bash
-- `gabarito_inputs` : gabarito Floyd-Warshall
-- `scc`: gabarito Kosaraju
-- `sp`: gabarito Dijkstra
-- `gabarito_agm.txt`: gabarito Kruskal e Prim
--
+bash floyd.sh
 ```
 
-Após compilar todos os `.bin` e colocalos na pasta `Bat1` rode no terminal (WSL):
+Se caso apareça `floyd.sh: line 2: $'\r': command not found` quando for rodar o floyd.sh
+isso acontece devido as quebras de linha Windows, rode no terminal:
+
 ```bash
-bash Bat1.sh
+sudo apt install dos2unix
+dos2unix floyd.sh
+> dos2unix: converting file floyd.sh to Unix format...
+bash floyd.sh
 ```
 
 O script irá executar os testes automaticamente e você poderá verificar se os algoritmos retornaram as saídas corretas
