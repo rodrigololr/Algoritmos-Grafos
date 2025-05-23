@@ -6,9 +6,12 @@ echo "Testando algoritmo de Floyd-Warshall"
 for i in inputs/*.txt
 do
     echo -e "\e[33mInstância $i\e[0m"
-    $floydWarshall -s -f $i > temp
+    $floydWarshall -s -f "$i" > temp
     
-    j=./gabarito_inputs/gabarito_$(basename $i)
+    
+    numero=$(basename "$i" .txt | grep -o '[0-9]\+')
+    j="./gabarito_inputs/gabarito_Grafo_${numero}.txt"
+    
     if diff -w temp "$j" > /dev/null; then
         echo -e "\e[32mOK\e[0m"
     else
